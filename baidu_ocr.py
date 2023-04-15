@@ -10,7 +10,7 @@ from aip import AipImageClassify
 
 APP_ID = '32310457'
 API_KEY = '6YZjabqXPVz3IpplymQ9ujHz'
-SECRET_KEY = 'bDjlMGXWGs2nAtIBCu5k6U9LPk7Cr1IP'
+SECRET_KEY = 'HvOTjxToKRbQFwkVgUsgwYniAm9Gt9VG'
 
 # 文字识别
 class word:

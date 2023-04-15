@@ -22,7 +22,7 @@ var fileGenerator = function () {
 	};
 };
 
-var semester = $("#courseTableForm input.calendar-text")[0].value;
+var semester = document.querySelector("#indexProjectForm > a:nth-child(9)").getInnerHTML();
 var raw_data = table0;
 window.icsObj = fileGenerator();
 window.icsObj.download(semester);

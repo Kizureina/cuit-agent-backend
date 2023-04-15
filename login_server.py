@@ -44,12 +44,16 @@ def code_process():
     browser.save_screenshot(loginImage)
     logging.info(USER_NAME + "截图完成")
     # 获取图片验证码坐标
-    code_ele = browser.find_element("xpath", '//*[@id="imgCode"]')
-    # 图片4个点的坐标位置
-    left = code_ele.location['x'] + 310  # x点的坐标
-    top = code_ele.location['y'] + 25  # y点的坐标
-    right = code_ele.size['width'] + left + 30  # 上面右边点的坐标
-    down = code_ele.size['height'] + top + 50  # 下面右边点的坐标
+    # code_ele = browser.find_element("xpath", '//*[@id="imgCode"]')
+    # # 图片4个点的坐标位置
+    # left = code_ele.location['x'] + 310  # x点的坐标
+    # top = code_ele.location['y'] + 25  # y点的坐标
+    # right = code_ele.size['width'] + left + 30  # 上面右边点的坐标
+    # down = code_ele.size['height'] + top + 50  # 下面右边点的坐标
+    left = 625
+    top = 245
+    right = 707
+    down = 317
     image = Image.open(loginImage)
     # 将图片验证码截取
     code_image = image.crop((left, top, right, down))
@@ -62,17 +66,17 @@ def code_process():
     lower_segment = image.crop((0, segment_size, width, height))
     lower_segment.save(codeImage)
 
-    image = Image.open(codeImage)
-    img = image.convert('L')  # P模式转换为L模式(灰度模式默认阈值127)
-    count = 130  # 设定阈值
-    table = []
-    for m in range(256):
-        if m < count:
-            table.append(0)
-        else:
-            table.append(1)
-    img = img.point(table, '1')
-    img.save(path + "/code1.png")  # 保存处理后的验证码
+    # image = Image.open(codeImage)
+    # img = image.convert('L')  # P模式转换为L模式(灰度模式默认阈值127)
+    # count = 130  # 设定阈值
+    # table = []
+    # for m in range(256):
+    #     if m < count:
+    #         table.append(0)
+    #     else:
+    #         table.append(1)
+    # img = img.point(table, '1')
+    # img.save(path + "/code1.png")  # 保存处理后的验证码
 
 
 def img_check(i=0):
@@ -183,6 +187,7 @@ if __name__ == '__main__':
     # 绕过验证码完成登录
     img_check(i)
     browser.implicitly_wait(10)
+    logging.info(USER_NAME + "进入教务处页面")
 
     # 进入教务处课表页面
     browser.find_element(
@@ -199,19 +204,18 @@ if __name__ == '__main__':
     time.sleep(1)
     browser.quit()
     # 指定源文件路径
-    source_file = "/home/root/Downloads/"
+    source_file = "/root/cuit_agent/py/"
 
-    # 指定目标文件夹路径
+    # # 指定目标文件夹路径
     os.system("mkdir -p /root/cuit_agent/py/" + USER_NAME)
     target_folder = "/root/cuit_agent/py/" + USER_NAME
 
-    # 使用shutil库中的move()函数移动文件
+    # # 使用shutil库中的move()函数移动文件
     files = os.listdir(source_file)
     for file in files:
-        if "学期" in file and ".json" in file:
+        if ".json" in file and USER_NAME in file:
             try:
                 shutil.move(source_file + file, target_folder)
-
             except:
                 logging.error(f"file {file} already exists")
             break

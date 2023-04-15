@@ -49,6 +49,10 @@ def code_process():
     top = code_ele.location['y'] + 25  # y点的坐标
     right = code_ele.size['width'] + left + 30  # 上面右边点的坐标
     down = code_ele.size['height'] + top + 50  # 下面右边点的坐标
+    # left = 625
+    # top = 245
+    # right = 707
+    # down = 317
     image = Image.open(loginImage)
     # 将图片验证码截取
     code_image = image.crop((left, top, right, down))
@@ -60,7 +64,6 @@ def code_process():
     segment_size = height // 2
     lower_segment = image.crop((0, segment_size, width, height))
     lower_segment.save(codeImage)
-
 
     image = Image.open(codeImage)
     img = image.convert('L')  # P模式转换为L模式(灰度模式默认阈值127)
@@ -130,7 +133,7 @@ if __name__ == '__main__':
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument("--disable-application-cache")
     chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--headless')
     
     chrome_driver = '/mnt/e/workplace/chromedriver_win32/chromedriver.exe'
     browser = webdriver.Chrome(executable_path=chrome_driver, chrome_options=chrome_options)
@@ -172,7 +175,7 @@ if __name__ == '__main__':
     img_check(i)
     browser.implicitly_wait(10) 
 
-    
+    logging.info(USER_NAME + "进入教务处页面")
     # 进入教务处课表页面
     browser.find_element("xpath", '//*[@id="menu_panel"]/ul/li[1]/ul/div/li[4]/a').click()
     time.sleep(1)
@@ -196,10 +199,9 @@ if __name__ == '__main__':
     # # 使用shutil库中的move()函数移动文件
     files = os.listdir(source_file)
     for file in files:
-        if "学期" in file and ".json" in file:
+        if ".json" in file and USER_NAME in file:
             try:
                 shutil.move(source_file + file, target_folder)
-                
             except:
                 logging.error(f"file {file} already exists")
             break
