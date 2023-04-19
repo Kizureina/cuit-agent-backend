@@ -110,10 +110,10 @@ def img_check(i = 0):
         else:
             browser.refresh()   
             logging.warning("第" + str(i) + "次图片识别失败")
-            if i > 20:
+            if i > 5:
                 logging.error('重试次数过多，验证码获取失败，请稍后重试')
                 browser.quit()
-                sys.exit(0)
+                sys.exit(-1)
             else:
                 i += 1
                 code_process()
@@ -142,6 +142,16 @@ if __name__ == '__main__':
     # 登录校外VPN
     j = 0
     while True:
+        logging.info(j)
+        if j > 2:
+            sys.exit(-1)
+        try:
+            browser.find_element("xpath",'//*[@id="Calc"]/div[1]/div[3]/div/div[1]/div/div/img')
+            sys.exit(-1)
+        except:
+            pass
+            
+            
         url = 'https://webvpn.cuit.edu.cn/portal/?redirect_uri=http%3A%2F%2Fjwgl-cuit-edu-cn.webvpn.cuit.edu.cn%3A8118%2Feams%2Fhome.action#!/login'
         browser.get(url)
         browser.implicitly_wait(10)
@@ -153,10 +163,12 @@ if __name__ == '__main__':
         browser.find_element("xpath", '/html/body/div[2]/div[1]/div/div[3]/div/div[2]/div[1]/div/div/div[2]/form/div[1]/div[1]/div/div[1]/input').send_keys(USER_NAME)
         
         browser.find_element("xpath", '//*[@id="Calc"]/div[4]/button').click()
+        if "错误" in str(browser.find_element("xpath",'//*[@id="Calc"]/div[2]/div').get_attribute('text')):
+                sys.exit(-1)
         j += 1
         # 登录统一身份验证
 
-        browser.implicitly_wait(10)
+        # browser.implicitly_wait(10)
         try:
             username = browser.find_element("xpath", '//*[@id="usernamepsw"]')
             break

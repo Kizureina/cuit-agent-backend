@@ -1,0 +1,18 @@
+2023-04-19 00:32:14,735 INFO: 2021122179进入统一登录页面
+2023-04-19 00:32:15,473 INFO: 2021122179截图完成
+2023-04-19 00:32:15,572 INFO: 2021122179开始识别验证码
+2023-04-19 00:32:16,144 INFO: 格式正确0: CQKC
+2023-04-19 00:32:17,021 INFO: 第0次尝试登录成功
+2023-04-19 00:32:17,024 INFO: 2021122179进入教务处页面
+2023-04-19 00:32:19,262 INFO: END
+2023-04-19 01:31:49,919 INFO: 2021122179进入统一登录页面
+2023-04-19 01:32:18,266 INFO: 2021122179进入统一登录页面
+2023-04-19 01:33:34,188 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f8ea831c9d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/96da4d385dd77f7066c24e6b21064555/url
+2023-04-19 01:33:34,189 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f8ea8bebf70>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/96da4d385dd77f7066c24e6b21064555/url
+2023-04-19 01:33:34,190 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f8ea831cbe0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/96da4d385dd77f7066c24e6b21064555/url
+2023-04-19 01:37:07,640 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc860d1ca30>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/3cbc3862a2c626e60a4138ec1edd30ad/url
+2023-04-19 01:37:07,641 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc860d1ca00>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/3cbc3862a2c626e60a4138ec1edd30ad/url
+2023-04-19 01:37:07,642 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc860d1cc40>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/3cbc3862a2c626e60a4138ec1edd30ad/url
+2023-04-19 01:44:21,115 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb64cb1cd90>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/422fdfb4a03d5a2a091e09f99c7313a8/url
+2023-04-19 01:44:21,116 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb64cb1cd30>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/422fdfb4a03d5a2a091e09f99c7313a8/url
+2023-04-19 01:44:21,116 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb64cb1cc10>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/422fdfb4a03d5a2a091e09f99c7313a8/url

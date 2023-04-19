@@ -16,7 +16,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 USER_NAME = sys.argv[1] 
-PASSWORD = sys.argv[2]
+PASSWORD = sys.argv[2]  
 
 def code_process():
     # 登录页面截图
@@ -153,12 +153,16 @@ if __name__ == '__main__':
     
     # 进入教务处课表页面
     browser.find_element("xpath", '//*[@id="menu_panel"]/ul/li[1]/ul/div/li[4]/a').click()
-    time.sleep(1)
-    
+    time.sleep(2)
+
     js_file_path = path + "/capture_json_data.js"
     with open(js_file_path, "r") as file:
         js_code = file.read()
-    browser.execute_script(js_code)
+    try:
+        browser.execute_script(js_code)
+    except:
+        logging.error("javascript execution failed")
+    time.sleep(1)
     browser.quit()
     # 指定源文件路径
     source_file = "C:\\Users\\Yoruko\\Downloads\\"
@@ -172,5 +176,6 @@ if __name__ == '__main__':
     for file in files:
         if "学期" in file and ".json" in file:
             shutil.move(source_file + file, target_folder)
+            logging.info("移动文件成功")
             break
     logging.info("END")

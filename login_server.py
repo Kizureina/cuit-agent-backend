@@ -118,7 +118,7 @@ def img_check(i=0):
         else:
             browser.refresh()
             logging.warning("第" + str(i) + "次图片识别失败")
-            if i > 20:
+            if i > 5:
                 logging.error('重试次数过多，验证码获取失败，请稍后重试')
                 browser.quit()
                 sys.exit(0)
@@ -152,6 +152,8 @@ if __name__ == '__main__':
     # 登录校外VPN
     j = 0
     while True:
+        if j > 2:
+            sys.exit(-1)
         url = 'https://webvpn.cuit.edu.cn/portal/?redirect_uri=http%3A%2F%2Fjwgl-cuit-edu-cn.webvpn.cuit.edu.cn%3A8118%2Feams%2Fhome.action#!/login'
         browser.get(url)
         browser.implicitly_wait(10)
@@ -167,6 +169,7 @@ if __name__ == '__main__':
 
         browser.find_element("xpath", '//*[@id="Calc"]/div[4]/button').click()
         j += 1
+            
         # 登录统一身份验证
 
         browser.implicitly_wait(10)
@@ -204,13 +207,13 @@ if __name__ == '__main__':
     time.sleep(1)
     browser.quit()
     # 指定源文件路径
-    source_file = "/root/cuit_agent/py/"
+    source_file = "/root/cuit_agent/"
 
-    # # 指定目标文件夹路径
-    os.system("mkdir -p /root/cuit_agent/py/" + USER_NAME)
-    target_folder = "/root/cuit_agent/py/" + USER_NAME
+    # 指定目标文件夹路径
+    os.system("mkdir -p /root/cuit_agent/" + USER_NAME)
+    target_folder = "/root/cuit_agent/" + USER_NAME
 
-    # # 使用shutil库中的move()函数移动文件
+    # 使用shutil库中的move()函数移动文件
     files = os.listdir(source_file)
     for file in files:
         if ".json" in file and USER_NAME in file:
