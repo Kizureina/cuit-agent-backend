@@ -8,9 +8,9 @@ from aip import AipImageClassify
 接口说明:http://ai.baidu.com/ai-doc/OCR/3k3h7yeqa
 '''
 
-APP_ID = '32310457'
-API_KEY = '6YZjabqXPVz3IpplymQ9ujHz'
-SECRET_KEY = 'HvOTjxToKRbQFwkVgUsgwYniAm9Gt9VG'
+APP_ID = '******'
+API_KEY = '****************'
+SECRET_KEY = '************************'
 
 # 文字识别
 class word:

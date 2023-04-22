@@ -207,11 +207,11 @@ if __name__ == '__main__':
     time.sleep(1)
     browser.quit()
     # 指定源文件路径
-    source_file = "/root/cuit_agent/"
+    source_file = "/cuit_agent/"
 
     # 指定目标文件夹路径
-    os.system("mkdir -p /root/cuit_agent/" + USER_NAME)
-    target_folder = "/root/cuit_agent/" + USER_NAME
+    os.system("mkdir -p /cuit_agent/" + USER_NAME)
+    target_folder = "/cuit_agent/" + USER_NAME
 
     # 使用shutil库中的move()函数移动文件
     files = os.listdir(source_file)
